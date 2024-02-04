@@ -1,7 +1,23 @@
-def fibonacci(n):
-    if n <= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
- if __name__ == "__main__":
-    n = 9
-    print(fibonacci(n))
+#include <stdio.h>
+
+int main() {
+    int n, first = 0, second = 1, next;
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci Series up to %d terms: ", n);
+
+    for (int i = 0; i < n; i++) {
+        if (i <= 1) {
+            next = i;
+        } else {
+            next = first + second;
+            first = second;
+            second = next;
+        }
+        printf("%d, ", next);
+    }
+
+    return 0;
+}
